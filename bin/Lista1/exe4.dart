@@ -1,9 +1,13 @@
 import 'dart:io';
 
+import 'package:intl/intl.dart';
+
 import 'class_pessoa.dart';
 
 void main(List<String> args) {
   List<Pessoa> listaPessoas = [];
+
+  DateFormat df = DateFormat('dd/MM/yyyy');
 
   for (int contador = 0; contador < 3; contador++) {
     print('Informe seu nome:');
@@ -15,15 +19,15 @@ void main(List<String> args) {
     print('Informe seu Estado Civil:');
     String estadoCivil = stdin.readLineSync()!;
 
-    print('Informe sua data de nascimento: ano - mes - dia');
-    DateTime dataNasci = DateTime.parse(stdin.readLineSync()!);
+    print('Informe sua data de nascimento: (Ex. 20/12/2010)');
+    String dataNasci = stdin.readLineSync()!;
 
     Pessoa? pessoa = Pessoa();
 
     pessoa.nome = nome;
     pessoa.idade = idade;
     pessoa.estadoCivil = estadoCivil;
-    pessoa.dataNasci = dataNasci;
+    pessoa.dataNasci = df.parse(dataNasci);
 
     listaPessoas.add(pessoa);
   }
@@ -32,5 +36,6 @@ void main(List<String> args) {
 
   for (int i = 0; i < listaPessoas.length; i++) {
     listaPessoas[i].mostrar();
+    print('');
   }
 }
