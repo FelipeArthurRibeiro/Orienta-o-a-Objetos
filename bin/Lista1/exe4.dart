@@ -35,7 +35,8 @@ void main(List<String> args) {
   print('');
 
   for (int i = 0; i < listaPessoas.length; i++) {
-    listaPessoas[i].mostrar();
+    Pessoa p = listaPessoas[i];
+    print(p);
     print('');
   }
 }
