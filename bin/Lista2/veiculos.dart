@@ -1,8 +1,10 @@
 class Veiculo {
-  String? _marca;
+  String? _marca; //Exe1
   String? _modelo;
   int? _anoModelo;
   int? _anoFabricacao;
+
+  Veiculo(this._marca, this._modelo, this._anoModelo, this._anoFabricacao);
 
   set marca(String? marca) {
     _marca = marca;
@@ -34,5 +36,10 @@ class Veiculo {
 
   int? get anoFabricacao {
     return _anoFabricacao;
+  }
+
+  @override
+  String toString() {
+    return 'Marca = $marca \nModelo = $modelo \nAno modelo = $anoModelo \nAno fabricação = $anoFabricacao';
   }
 }
